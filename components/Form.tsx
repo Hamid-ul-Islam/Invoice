@@ -2,7 +2,7 @@
 
 import { useState } from 'react'
 import { useForm, useFieldArray, Controller } from 'react-hook-form'
-import { PlusCircle, Trash2 } from 'lucide-react'
+import { Activity, PlusCircle, Trash2 } from 'lucide-react'
 import { Button } from '@/components/ui/button'
 import {
 	Card,
@@ -20,6 +20,7 @@ import {
 	SelectTrigger,
 	SelectValue,
 } from '@/components/ui/select'
+import Image from 'next/image'
 
 type FormData = {
 	clientName: string
@@ -71,10 +72,11 @@ export default function InvoiceForm({
 
 	return (
 		<form onSubmit={handleSubmit(onSubmit)} className="space-y-8 md:w-1/2">
-			<Card>
+			<Card className="md:px-10 md:py-10">
 				<CardHeader>
 					<CardTitle className="">
 						<div className="text-xl flex flex-col justify-center items-center">
+							<Image src="/badge.png" alt="logo" width={100} height={100} />
 							<span>Invoice Generator</span>
 							<span>UL FATH AD AGENCY</span>
 						</div>
@@ -245,7 +247,7 @@ export default function InvoiceForm({
 				</CardContent>
 				<CardFooter>
 					<Button type="submit" className="w-full text-zinc-900 font-bold py-5">
-						Generate Invoice
+						<Activity className="mr-2 h-5 w-5" /> Generate Invoice
 					</Button>
 				</CardFooter>
 			</Card>
